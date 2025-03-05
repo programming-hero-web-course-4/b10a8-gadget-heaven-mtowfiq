@@ -5,9 +5,9 @@ const Navbar = () => {
     return (
         <div className='flex justify-between items-center pt-9 md:px-40'>
             <div>
-                <h2>Gadget Heaven</h2>
+                <h2 className='text-xl font-bold'>Gadget Heaven</h2>
             </div>
-            <div className='space-x-12'>
+            <div className='space-x-12 font-bold'>
                 <NavLink to="/">Home</NavLink>
                 <NavLink>Statistics</NavLink>
                 <NavLink>Dashboard</NavLink>

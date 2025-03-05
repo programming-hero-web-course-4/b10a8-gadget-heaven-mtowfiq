@@ -13,6 +13,7 @@ import DisplayPhones from './Components/DisplayPhones/DisplayPhones.jsx';
 import DisplayAllProducts from './Components/DisplayAllProducts/DisplayAllProducts.jsx';
 import DisplayLaptops from './Components/DisplayLaptops/DisplayLaptops.jsx';
 import DisplaySmartWatches from './Components/DisplaySmartWatches/DisplaySmartWatches.jsx';
+import Details from './Components/Details/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
             loader: () => fetch("../public/data/products.json")
           },
         ]
+      },
+      {
+        path: "products/:product_id",
+        element: <Details></Details>,
+        loader: () => fetch("../public/data/products.json")
       }
     ]
   },

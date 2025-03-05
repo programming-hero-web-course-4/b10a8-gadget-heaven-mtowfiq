@@ -7,8 +7,7 @@ const DisplayPhones = () => {
     const phones = data.filter(phone => phone.category === "Smartphones")
     console.log(phones)
     return (
-        <div>
-            <h3>Phones</h3>
+        <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 md:gap-6 sm:gap-4'>
             {
                 phones.map(phone => <Product key={phone.product_id} product={phone}></Product>)
             }
