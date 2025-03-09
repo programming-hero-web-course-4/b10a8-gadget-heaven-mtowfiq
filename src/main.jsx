@@ -14,6 +14,10 @@ import DisplayAllProducts from './Components/DisplayAllProducts/DisplayAllProduc
 import DisplayLaptops from './Components/DisplayLaptops/DisplayLaptops.jsx';
 import DisplaySmartWatches from './Components/DisplaySmartWatches/DisplaySmartWatches.jsx';
 import Details from './Components/Details/Details.jsx';
+import Dashboard from './Components/Dashboard/Dashboard.jsx';
+import ProductIdProvider from './Provider/ProductIdProvider.jsx';
+import Cart from './Components/Cart/Cart.jsx';
+import Wishlist from './Components/Wishlist/Wishlist.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +55,23 @@ const router = createBrowserRouter([
         path: "products/:product_id",
         element: <Details></Details>,
         loader: () => fetch("../public/data/products.json")
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+        loader: () => fetch("../public/data/products.json"),
+        children: [
+        {
+          path: "/dashboard",
+          element: <Cart></Cart>,
+          loader: () => fetch("../public/data/products.json")
+        },
+        {
+          path: "/dashboard/wishlist",
+          element: <Wishlist></Wishlist>,
+          loader: () => fetch("../public/data/products.json")
+        }
+      ]
       }
     ]
   },
@@ -58,6 +79,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ProductIdProvider>
+      <RouterProvider router={router} />
+    </ProductIdProvider>
   </StrictMode>,
 )

@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToStoredCart, addToStoredWishlist } from '../../Utility/addToDb';
+import { ProductIdContext } from '../../Provider/ProductIdProvider';
 
 const Details = () => {
     const data = useLoaderData()
     const {product_id} = useParams()
     const productIdInt = parseInt(product_id)
+    const {addProductId} = useContext(ProductIdContext)
+
 
     const product = data.find(data => data.product_id === productIdInt)
     const {product_id: currentProductId, product_image, product_title, price, availabilty, description, Specification, rating} = product
     // console.log(product)
+
+    const handleAddToCart = (id) => {
+        addToStoredCart(id)
+        addProductId(id)
+    }
+    const handleAddToWishlist = (id) =>{
+        addToStoredWishlist(id)
+        addProductId(id)
+    }
     return (
         <div>
             <div className='bg-purple pt-8 px-10 text-white'>
@@ -21,7 +34,7 @@ const Details = () => {
                 </div>
                 <div>
                     <h2 className='mb-3 text-3xl font-semibold'>{product_title}</h2>
-                    <p className='mb-4 font-semibold text-xl'>{price}</p>
+                    <p className='mb-4 font-semibold text-xl'>${price}</p>
                     {
                         availabilty? (<div><button className='py-2 px-4 rounded-4xl btn-green'>In Stock</button></div>) : (<div><button className='py-2 px-4 rounded-4xl btn-green'>Out of Stock</button></div>)
                     }
@@ -32,10 +45,10 @@ const Details = () => {
                     }
                     <h4 className='font-bold text-lg mb-3'>Rating</h4>
                     <button className='bg-gray-300 rounded-4xl py-2 px-4 mb-4'>{rating}</button>
-                    <div className='flex gap-4'>
-                        <button className='bg-purple rounded-4xl py-3 px-7 flex items-center gap-3'>Add To Cart <img className='p-2 bg-white border border-black rounded-full w-1/4' src="https://img.icons8.com/?size=100&id=9671&format=png&color=000000" alt="" /></button>
-                        <img className='p-2 bg-white border w-1/6 border-black rounded-full' src="https://img.icons8.com/?size=100&id=87&format=png&color=000000" alt="" />
-                    </div>
+                        <div className='flex gap-4'>
+                            <button onClick={() => handleAddToCart(currentProductId)} className='bg-purple rounded-4xl py-3 px-7 flex items-center gap-3'>Add To Cart <img className='p-2 bg-white border border-black rounded-full w-1/4' src="https://img.icons8.com/?size=100&id=9671&format=png&color=000000" alt="" /></button>
+                            <img onClick={() => handleAddToWishlist(currentProductId)} className='p-2 bg-white border w-1/6 border-black rounded-full' src="https://img.icons8.com/?size=100&id=87&format=png&color=000000" alt="" />
+                        </div>
                 </div>
             </div>
         </div>

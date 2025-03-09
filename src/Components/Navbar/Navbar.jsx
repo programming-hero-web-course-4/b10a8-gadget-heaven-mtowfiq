@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className='space-x-12 font-bold'>
                 <NavLink to="/">Home</NavLink>
                 <NavLink>Statistics</NavLink>
-                <NavLink>Dashboard</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
             </div>
             <div className='flex gap-4'>
                 <div className='w-10 h-10'>
