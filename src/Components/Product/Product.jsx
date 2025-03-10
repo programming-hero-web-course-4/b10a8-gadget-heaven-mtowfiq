@@ -9,7 +9,7 @@ const Product = ({product}) => {
                 <img src={product_image} alt="" />
             </div>
             <h3 className='mt-6 mb-3 font-semibold text-2xl'>{product_title}</h3>
-            <p className='mb-4 text-gray-500 font-medium text-xl'>{price}</p>
+            <p className='mb-4 text-gray-500 font-medium text-xl'>$ {price}</p>
             <Link to={`products/${product_id}`}><button className='text-purple py-3 px-6 border rounded-4xl text-lg'>View Details</button></Link>
         </div>
     );

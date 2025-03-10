@@ -3,13 +3,9 @@ import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { ProductIdContext } from "../../Provider/ProductIdProvider";
 
 const Dashboard = () => {
-    const data = useLoaderData()
-    console.log(data)
-    const {productId} = useContext(ProductIdContext)
-    console.log("The prodcut id is", productId)
     return (
         <div>
-            <div className="bg-purple">
+            <div className="bg-purple py-8 px-40 mb-14">
                 <h3 className="text-center text-white font-bold text-4xl">Dashboard</h3>
                 <p className="text-center text-white mt-4 mb-8">Explore the latest gadgets that will take your experience to <br /> the next level. From smart devices to the coolest accessories, we have it all!</p>
                 <div className="flex justify-center gap-6">
