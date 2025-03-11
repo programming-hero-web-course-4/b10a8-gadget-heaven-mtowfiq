@@ -5,11 +5,11 @@ const Navbar = () => {
     return (
         <div className='flex justify-between items-center pt-9 md:px-40'>
             <div>
-                <h2 className='text-xl font-bold'>Gadget Heaven</h2>
+                <h2 className='text-xl font-bold '>Gadget Heaven</h2>
             </div>
-            <div className='space-x-12 font-bold'>
+            <div className='navbar space-x-12 font-bold mx-auto w-fit'>
                 <NavLink to="/">Home</NavLink>
-                <NavLink>Statistics</NavLink>
+                <NavLink to="/statistics">Statistics</NavLink>
                 <NavLink to="/dashboard">Dashboard</NavLink>
             </div>
             <div className='flex gap-4'>

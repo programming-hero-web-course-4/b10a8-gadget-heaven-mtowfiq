@@ -11,7 +11,7 @@ const Wishlist = () => {
     console.log(items)
 
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <h5 className='font-bold text-2xl mb-8'>Wishlist</h5>
             {
                 items.map(item => <DisplayWishlist key={item.product_id} item={item}></DisplayWishlist>)

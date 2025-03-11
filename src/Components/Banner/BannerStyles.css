@@ -14,3 +14,12 @@
     background-color: rgba(48, 156, 8, 0.1);
     color: rgb(48, 156, 8);
 }
+
+.navbar a.active{
+    color: rgb(149, 56, 226);
+}
+
+.dash a.active button{
+    color: rgb(149, 56, 226);
+    background-color: white;
+}
