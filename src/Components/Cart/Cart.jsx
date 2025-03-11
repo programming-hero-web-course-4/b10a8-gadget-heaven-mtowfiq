@@ -5,9 +5,9 @@ import DisplayCart from '../DisplayCart/DisplayCart';
 
 const Cart = () => {
     const data = useLoaderData()
-    const {productId} = useContext(ProductIdContext)
-    console.log(productId)
-    const items = data.filter(item => productId.includes(item.product_id) )
+    const {productIdCart} = useContext(ProductIdContext)
+    console.log(productIdCart)
+    const items = data.filter(item => productIdCart.includes(item.product_id) )
     console.log(items)
 
     let totalPrice = 0

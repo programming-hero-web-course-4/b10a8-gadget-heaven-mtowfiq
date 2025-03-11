@@ -7,7 +7,7 @@ const Details = () => {
     const data = useLoaderData()
     const {product_id} = useParams()
     const productIdInt = parseInt(product_id)
-    const {addProductId} = useContext(ProductIdContext)
+    const {addProductIdToWishlist, addProductIdToCart} = useContext(ProductIdContext)
 
 
     const product = data.find(data => data.product_id === productIdInt)
@@ -16,11 +16,11 @@ const Details = () => {
 
     const handleAddToCart = (id) => {
         addToStoredCart(id)
-        addProductId(id)
+        addProductIdToCart(id)
     }
     const handleAddToWishlist = (id) =>{
         addToStoredWishlist(id)
-        addProductId(id)
+        addProductIdToWishlist(id)
     }
     return (
         <div>

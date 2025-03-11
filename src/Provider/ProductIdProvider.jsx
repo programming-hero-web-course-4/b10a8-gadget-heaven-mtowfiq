@@ -4,12 +4,16 @@ export const ProductIdContext = createContext()
 
 const ProductIdProvider = ({children}) => {
     const [productId, setProductId] = useState([])
-    const addProductId = (id) => {
+    const addProductIdToWishlist = (id) => {
         setProductId((prevIds)=> setProductId([...prevIds, id]))
+    }
+    const [productIdCart, setProductIdCart] = useState([])
+    const addProductIdToCart = (id) =>{
+        setProductIdCart((prevIds)=> setProductIdCart([...prevIds, id]))
     }
     return (
         <div>
-            <ProductIdContext.Provider value={{productId, addProductId}}>
+            <ProductIdContext.Provider value={{productId, addProductIdToWishlist, addProductIdToCart, productIdCart}}>
                 {children}
             </ProductIdContext.Provider>
         </div>
