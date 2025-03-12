@@ -16,10 +16,15 @@
 }
 
 .navbar a.active{
-    color: rgb(149, 56, 226);
+    color: black;
+    text-decoration: underline;
 }
 
 .dash a.active button{
     color: rgb(149, 56, 226);
     background-color: white;
+}
+
+.sidebar a.active{
+    color: rgb(149, 56, 226)
 }

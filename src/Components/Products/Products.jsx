@@ -16,7 +16,7 @@ const Products = () => {
     <div className="max-w-7xl mx-auto">
       <h2 className="text-center text-4xl font-bold mt-28">Explore Cutting-Edge Gadgets</h2>
       <div className="flex gap-6 p-6">
-        <div className="bg-gray-100 flex flex-col items-center w-fit self-start p-6 rounded-2xl">
+        <div className="bg-gray-100 sidebar flex flex-col items-center w-fit self-start p-6 rounded-2xl">
           <NavLink to="/">
             <button className="border rounded-4xl mb-6 py-3 px-5 font-black text-lg">
               All Product
