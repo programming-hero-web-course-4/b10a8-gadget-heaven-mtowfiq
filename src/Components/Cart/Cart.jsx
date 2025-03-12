@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { ProductIdContext } from '../../Provider/ProductIdProvider';
 import DisplayCart from '../DisplayCart/DisplayCart';
 
@@ -23,6 +23,12 @@ const Cart = () => {
         const sortedItemsArr = [...sortedItems].sort((a, b) => b.price - a.price)
         setSortedItems(sortedItemsArr)
     }
+    
+    const navigate = useNavigate()
+
+    const handleGoBack = () =>{
+        navigate("/")
+    }
 
     return (
         <div className='max-w-7xl mx-auto'>
@@ -36,9 +42,20 @@ const Cart = () => {
             </div>
             <div>
                 {
-                    sortedItems.map(item => <DisplayCart key={item.product_id} item={item}></DisplayCart>)
+                    sortedItems.length > 0 ? (<div>
+                        {
+                            sortedItems.map(item => <DisplayCart key={item.product_id} item={item}></DisplayCart>)
+                        }
+                    </div>) : 
+                    (
+                        <div className='flex flex-col items-center justify-center'>
+                            <h3 className='font-bold text-xl mb-8'>No items in your Cart</h3>
+                            <button className='border-4 border-purple-200 text-purple bg-white rounded-4xl px-8 py-4 font-bold text-xl mb-8' onClick={handleGoBack}>Go back to Home page</button>
+                        </div>
+                    )
                 }
             </div>
+            
         </div>
     );
 };
