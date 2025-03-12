@@ -1,12 +1,23 @@
-# React + Vite
+**Gadget Heaven**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1) Live Website Link-
 
-Currently, two official plugins are available:
+2) List of fundamental concepts used in the project-
+- Used React Routing and nested routing concepts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Used different React hooks like the useLocation(), useParams(), useLoaderData() hooks e.t.c.
 
-## Expanding the ESLint configuration
+- Used the concept of Context API for dealing with data between 2 components.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3) Used Context API for easily handling and managing data between 2 components. Context API eliminated the use of prop drilling which is a tedious task.
+
+4) Features of the project-
+- It has a category section, allowing us to just select the category based on our need (instead of just scrolling through every kind of category)
+
+- Each gadget has a description and a rating allowing users to make an informed purchase.
+
+- The project makes use of active states for buttons (allowing us to know where exactly we are).
+
+- There is a sort by price option, which allows the user to sort the price of the gadget(s) in descending order.
+
+- The project makes use of beautiful alerts (toast messages), for example when we add an item to the cart, it shows a beautiful message that the item has been added, adding to user-friendliness

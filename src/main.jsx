@@ -5,6 +5,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import App from './App.jsx'
 import Root from './Components/Root/Root.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
@@ -81,6 +83,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ProductIdProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </ProductIdProvider>
   </StrictMode>,
 )

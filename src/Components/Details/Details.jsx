@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { addToStoredCart, addToStoredWishlist } from '../../Utility/addToDb';
 import { ProductIdContext } from '../../Provider/ProductIdProvider';
+import { toast } from 'react-toastify';
 
 const Details = () => {
     const data = useLoaderData()
@@ -17,10 +18,12 @@ const Details = () => {
     const handleAddToCart = (id) => {
         addToStoredCart(id)
         addProductIdToCart(id)
+        toast("Added to cart")
     }
     const handleAddToWishlist = (id) =>{
         addToStoredWishlist(id)
         addProductIdToWishlist(id)
+        toast("Added to the Wishlist")
     }
     return (
         <div>
