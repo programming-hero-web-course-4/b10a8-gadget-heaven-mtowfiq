@@ -20,6 +20,7 @@ import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import ProductIdProvider from './Provider/ProductIdProvider.jsx';
 import Cart from './Components/Cart/Cart.jsx';
 import Wishlist from './Components/Wishlist/Wishlist.jsx';
+import Statistics from './Components/Statistics/Statistics.jsx';
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
           loader: () => fetch("../public/data/products.json")
         }
       ]
+      },
+      {
+        path: "/statistics",
+        element: <Statistics></Statistics>,
+        loader: () => fetch("../public/data/products.json")
       }
     ]
   },

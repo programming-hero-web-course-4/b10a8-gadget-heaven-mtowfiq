@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { addToStoredCart, addToStoredWishlist } from '../../Utility/addToDb';
 import { ProductIdContext } from '../../Provider/ProductIdProvider';
@@ -8,7 +8,8 @@ const Details = () => {
     const data = useLoaderData()
     const {product_id} = useParams()
     const productIdInt = parseInt(product_id)
-    const {addProductIdToWishlist, addProductIdToCart} = useContext(ProductIdContext)
+    const {addProductIdToWishlist, addProductIdToCart, productId} = useContext(ProductIdContext)
+    const [disable, setDisable] = useState(false)
 
 
     const product = data.find(data => data.product_id === productIdInt)
@@ -24,6 +25,9 @@ const Details = () => {
         addToStoredWishlist(id)
         addProductIdToWishlist(id)
         toast("Added to the Wishlist")
+        if(productId.includes(id)){
+            setDisable(true)
+        }
     }
     return (
         <div>
@@ -41,7 +45,7 @@ const Details = () => {
                     {
                         availabilty? (<div><button className='py-2 px-4 rounded-4xl btn-green'>In Stock</button></div>) : (<div><button className='py-2 px-4 rounded-4xl btn-green'>Out of Stock</button></div>)
                     }
-                    <p className='text-lg mb-4'>Ultra-slim, high-performance laptop with 13.4-inch Infinity Edge display.</p>
+                    <p className='text-lg mb-4'>{description}</p>
                     <h4 className='font-bold text-lg mb-4'>Specification:</h4>
                     {
                         Specification.map((spec, idx) => <li className='text-gray-500 mb-4 text-lg' key={idx} spec={spec}>{spec}</li>)
@@ -50,7 +54,7 @@ const Details = () => {
                     <button className='bg-gray-300 rounded-4xl py-2 px-4 mb-4'>{rating}</button>
                         <div className='flex gap-4'>
                             <button onClick={() => handleAddToCart(currentProductId)} className='bg-purple rounded-4xl py-3 px-7 flex items-center gap-3'>Add To Cart <img className='p-2 bg-white border border-black rounded-full w-1/4' src="https://img.icons8.com/?size=100&id=9671&format=png&color=000000" alt="" /></button>
-                            <img onClick={() => handleAddToWishlist(currentProductId)} className='p-2 bg-white border w-1/6 border-black rounded-full' src="https://img.icons8.com/?size=100&id=87&format=png&color=000000" alt="" />
+                            {disable? (<img disable onClick={() => handleAddToWishlist(currentProductId)} className='p-2 bg-white border w-1/6 border-black rounded-full' src="https://img.icons8.com/?size=100&id=87&format=png&color=000000" alt="" />) : (<img onClick={() => handleAddToWishlist(currentProductId)} className='p-2 bg-white border w-1/6 border-black rounded-full' src="https://img.icons8.com/?size=100&id=87&format=png&color=000000" alt="" />)}
                         </div>
                 </div>
             </div>
