@@ -33,7 +33,7 @@ const Details = () => {
         <div>
             <div className='bg-purple pt-8 px-10 text-white'>
                 <h2 className='font-bold text-4xl text-center'>Product Details</h2>
-                <p className='mt-4 mb-8 text-center'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
+                <p className='mt-4 pb-8 text-center'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
             </div>
             <div className='p-8 max-w-7xl mx-auto flex gap-8'>
                 <div className='my-auto'>
