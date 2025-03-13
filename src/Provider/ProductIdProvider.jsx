@@ -13,7 +13,7 @@ const ProductIdProvider = ({children}) => {
     }
     return (
         <div>
-            <ProductIdContext.Provider value={{productId, addProductIdToWishlist, addProductIdToCart, productIdCart}}>
+            <ProductIdContext.Provider value={{productId, addProductIdToWishlist, addProductIdToCart, productIdCart, setProductIdCart}}>
                 {children}
             </ProductIdContext.Provider>
         </div>
